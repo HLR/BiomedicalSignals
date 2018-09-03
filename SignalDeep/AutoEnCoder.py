@@ -18,7 +18,7 @@ with open('Data/TrainingForAuto.csv', 'r', ) as f:
     column = [row[1] for row in reader]
     a = len(rows0)
 rows0 = np.array(rows0)
-rows0 = rows0[:, 1:len(rows0[0]) - 2]
+rows0 = rows0[:, 1:len(rows0[0]) -2 ]
 rows0 = rows0.astype(float)
 
 with open('Data/Training.csv', 'r', ) as f:
@@ -95,37 +95,44 @@ model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=Tru
                              moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None,
                              beta_constraint=None, gamma_constraint=None))
 model.add(Dense(350, activation='relu'))
+model.add(Dropout(0.5))
 model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros',
                              gamma_initializer='ones', moving_mean_initializer='zeros',
                              moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None,
                              beta_constraint=None, gamma_constraint=None))
 model.add(Dense(250, activation='relu'))
+model.add(Dropout(0.5))
 model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros',
                              gamma_initializer='ones', moving_mean_initializer='zeros',
                              moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None,
                              beta_constraint=None, gamma_constraint=None))
 model.add(Dense(350, activation='relu'))
+model.add(Dropout(0.5))
 model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros',
                              gamma_initializer='ones', moving_mean_initializer='zeros',
                              moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None,
                              beta_constraint=None, gamma_constraint=None))
 model.add(Dense(750, activation='relu'))
+model.add(Dropout(0.5))
 model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros',
                              gamma_initializer='ones', moving_mean_initializer='zeros',
                              moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None,
                              beta_constraint=None, gamma_constraint=None))
-model.add(Dense(1500, activation='sigmoid'))
-model.add(Dense(s, activation='sigmoid'))
+model.add(Dense(1500, activation='relu'))
+model.add(Dropout(0.5))
+
+model.add(Dense(s, activation='relu'))
 
 model.compile(optimizer='adam', loss='mse')  # reporting the accuracy
-model.fit(rows0, rows0, nb_epoch=10, batch_size=128, shuffle=True, validation_data=(rows0, rows0))
+model.fit(rows0, rows0, epochs=10, batch_size=128, shuffle=True, validation_data=(rows0, rows0))
 
 #mid = model(input_img, y)
 #reduced_representation0 = model.predict(XX1)
 #reduced_representation1 = model.predict(M)
-get_12th_layer_output = K.function([model.layers[0].input], [model.layers[12].output])
-reduced_representation0 = get_12th_layer_output([XX1])
-reduced_representation1 = get_12th_layer_output([M])
+
+
+get_14th_layer_output = K.function([model.layers[0].input], [model.layers[14].output])
+
 
 # define model structure
 def baseline_model():
@@ -149,22 +156,119 @@ def baseline_model():
 
 estimator = KerasClassifier(build_fn=baseline_model, epochs=15, batch_size=16)
 # splitting data into training set and test set. If random_state is set to an integer, the split datasets are fixed.
-X_train=reduced_representation0
-X_test=reduced_representation1
-Y_train=yy1
 
 
-encoder = LabelEncoder()
-Y_train = encoder.fit_transform(Y_train)
-Y_train = np_utils.to_categorical(Y_train)
-estimator.fit(X_train, Y_train)
+m = []
+for k in range(5):
+    X_train = get_14th_layer_output([XX1])
+    X_test = get_14th_layer_output([M])
+    Y_train = yy1
+    encoder = LabelEncoder()
+    Y_train = encoder.fit_transform(Y_train)
+    Y_train = np_utils.to_categorical(Y_train)
+    estimator.fit(X_train, Y_train)
+    # make predictions
+    pred = estimator.predict(X_test)
 
-# make predictions
-pred = estimator.predict(X_test)
+    print(pred)
+    j = 0
+    for i in range(len(pred)):
+        if pred[i] == 0:
+            j = j + 1
+    print(j, len(pred))
+    m.append(j)
+print(sum(m) / len(m), np.std(m))
 
-print(pred)
-j=0
-for i in range(len(pred)):
-   if pred[i] == 0:
-      j=j+1
-print(j, len(pred))
+
+
+# Graphing the layers
+layer_number = [2, 5, 8, 11, 14, 17, 20, 21, 23]
+layer_dat = []
+for qlist in layer_number:
+    get_nth_layer_output = K.function([model.layers[0].input], [model.layers[qlist].output])
+    nlayer = get_nth_layer_output([M])
+    layer_dat.append(nlayer[0][0])
+
+layer_node_number = [1950, 1500, 750, 350, 250, 350, 750, 1500, 1950]
+mn = []
+for qn in layer_node_number:
+    qm = []
+    for i in range(qn):
+        qm.append(i)
+    mn.append(qm)
+
+
+import matplotlib.pyplot as plt
+
+plt.figure(1)
+
+# linear
+plt.subplot(331)
+plt.plot(mn[0], layer_dat[0])
+#plt.yscale('linear')
+plt.title('1950')
+plt.grid(True)
+
+
+# log
+plt.subplot(332)
+plt.plot(mn[1], layer_dat[1])
+#plt.yscale('log')
+plt.title('1500')
+plt.grid(True)
+
+
+# symmetric log
+plt.subplot(333)
+plt.plot(mn[2], layer_dat[2])
+#plt.plot(x, y - y.mean())
+#plt.yscale('symlog', linthreshy=0.01)
+plt.title('750')
+plt.grid(True)
+
+# logit
+plt.subplot(334)
+plt.plot(mn[3], layer_dat[3])
+#plt.yscale('logit')
+plt.title('350')
+plt.grid(True)
+
+# linear
+plt.subplot(335)
+plt.plot(mn[4], layer_dat[4])
+#plt.yscale('linear')
+plt.title('250')
+plt.grid(True)
+
+
+# log
+plt.subplot(336)
+plt.plot(mn[5], layer_dat[5])
+#plt.yscale('log')
+plt.title('350')
+plt.grid(True)
+
+
+# symmetric log
+plt.subplot(337)
+plt.plot(mn[6], layer_dat[6])
+#plt.plot(x, y - y.mean())
+#plt.yscale('symlog', linthreshy=0.01)
+plt.title('750')
+plt.grid(True)
+
+# logit
+plt.subplot(338)
+plt.plot(mn[7], layer_dat[7])
+#plt.yscale('logit')
+plt.title('1500')
+plt.grid(True)
+
+# logit
+plt.subplot(339)
+plt.plot(mn[8], layer_dat[8])
+#plt.yscale('logit')
+plt.title('1950')
+plt.grid(True)
+
+plt.show()
