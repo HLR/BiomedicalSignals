@@ -10,6 +10,7 @@ from keras.utils import np_utils
 from six.moves import range
 import random
 from keras import backend as K
+from keras.callbacks import History
 
 
 with open('Data/TrainingForAuto.csv', 'r', ) as f:
@@ -45,10 +46,10 @@ y = y.astype(float)
 M = rows2[:, 1:len(rows1[0]) - 2]
 M = M.astype(float)
 
-for i in range(len(X) - 1, -1, -1):
-    if float(np.max(X[i])) < 50:
-        X = np.delete(X, i, axis=0)
-        y = np.delete(y, i, axis=0)
+#for i in range(len(X) - 1, -1, -1):
+#    if float(np.max(X[i])) < 50:
+#        X = np.delete(X, i, axis=0)
+#        y = np.delete(y, i, axis=0)
 
 print(len(X))
 
@@ -59,7 +60,7 @@ yy1 = y[slice[1]]
 XX2 = XX1
 yy2 = yy1
 for j in range(2, len(slice)):
-    if j < 1.1 * len(a):
+    if j < 1.2 * len(a):
         XX1 = np.row_stack((XX1, X[slice[j]]))
         yy1 = np.row_stack((yy1, y[slice[j]]))
     else:
@@ -68,7 +69,7 @@ for j in range(2, len(slice)):
 
 print(len(rows0), len(rows0[0]))
 
-print(y.dtype)
+print(len(XX1), len(yy1))
 
 
 input_img = Input(shape=(len(rows0[0]),))  # adapt this if using `channels_first` image data format
@@ -126,13 +127,13 @@ model.add(Dense(s, activation='relu'))
 model.compile(optimizer='adam', loss='mse')  # reporting the accuracy
 model.fit(rows0, rows0, epochs=10, batch_size=128, shuffle=True, validation_data=(rows0, rows0))
 
-#mid = model(input_img, y)
-#reduced_representation0 = model.predict(XX1)
-#reduced_representation1 = model.predict(M)
 
+# The number of nodes in each layer
+layer_node_number = [1950, 1500, 750, 350, 250, 350, 750, 1500, 1950]
+layer_number = [2, 5, 8, 11, 14, 17, 20, 21, 23]
+r= 4
 
-get_14th_layer_output = K.function([model.layers[0].input], [model.layers[14].output])
-
+get_14th_layer_output = K.function([model.layers[0].input], [model.layers[layer_number[r]].output])
 
 # define model structure
 def baseline_model():
@@ -154,21 +155,34 @@ def baseline_model():
    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
    return model
 
-estimator = KerasClassifier(build_fn=baseline_model, epochs=15, batch_size=16)
+
+DeepEpoch = 15
+estimator = KerasClassifier(build_fn=baseline_model, epochs=DeepEpoch, batch_size=16)
 # splitting data into training set and test set. If random_state is set to an integer, the split datasets are fixed.
 
 
+
+
+
 m = []
+LossAv = []
+AccuAv = []
 for k in range(5):
     X_train = get_14th_layer_output([XX1])
-    X_test = get_14th_layer_output([M])
+    #X_test = get_14th_layer_output([XX2])
+    X_Drug = get_14th_layer_output([M])
     Y_train = yy1
+    #Y_test = yy2
     encoder = LabelEncoder()
     Y_train = encoder.fit_transform(Y_train)
     Y_train = np_utils.to_categorical(Y_train)
-    estimator.fit(X_train, Y_train)
+    #Y_test = encoder.fit_transform(Y_test)
+    #Y_test = np_utils.to_categorical(Y_test)
+    hist = estimator.fit(X_train, Y_train, validation_split=0.15)
+    LossAv.append(hist.history['val_loss'][:][DeepEpoch-1])
+    AccuAv.append(hist.history['val_acc'][:][DeepEpoch-1])
     # make predictions
-    pred = estimator.predict(X_test)
+    pred = estimator.predict(X_Drug)
 
     print(pred)
     j = 0
@@ -178,18 +192,17 @@ for k in range(5):
     print(j, len(pred))
     m.append(j)
 print(sum(m) / len(m), np.std(m))
-
+print(sum(LossAv) / len(LossAv), np.std(LossAv))
+print(sum(AccuAv) / len(AccuAv), np.std(AccuAv))
 
 
 # Graphing the layers
-layer_number = [2, 5, 8, 11, 14, 17, 20, 21, 23]
 layer_dat = []
 for qlist in layer_number:
     get_nth_layer_output = K.function([model.layers[0].input], [model.layers[qlist].output])
     nlayer = get_nth_layer_output([M])
     layer_dat.append(nlayer[0][0])
 
-layer_node_number = [1950, 1500, 750, 350, 250, 350, 750, 1500, 1950]
 mn = []
 for qn in layer_node_number:
     qm = []
@@ -201,74 +214,10 @@ for qn in layer_node_number:
 import matplotlib.pyplot as plt
 
 plt.figure(1)
-
-# linear
-plt.subplot(331)
-plt.plot(mn[0], layer_dat[0])
-#plt.yscale('linear')
-plt.title('1950')
-plt.grid(True)
-
-
-# log
-plt.subplot(332)
-plt.plot(mn[1], layer_dat[1])
-#plt.yscale('log')
-plt.title('1500')
-plt.grid(True)
-
-
-# symmetric log
-plt.subplot(333)
-plt.plot(mn[2], layer_dat[2])
-#plt.plot(x, y - y.mean())
-#plt.yscale('symlog', linthreshy=0.01)
-plt.title('750')
-plt.grid(True)
-
-# logit
-plt.subplot(334)
-plt.plot(mn[3], layer_dat[3])
-#plt.yscale('logit')
-plt.title('350')
-plt.grid(True)
-
-# linear
-plt.subplot(335)
-plt.plot(mn[4], layer_dat[4])
-#plt.yscale('linear')
-plt.title('250')
-plt.grid(True)
-
-
-# log
-plt.subplot(336)
-plt.plot(mn[5], layer_dat[5])
-#plt.yscale('log')
-plt.title('350')
-plt.grid(True)
-
-
-# symmetric log
-plt.subplot(337)
-plt.plot(mn[6], layer_dat[6])
-#plt.plot(x, y - y.mean())
-#plt.yscale('symlog', linthreshy=0.01)
-plt.title('750')
-plt.grid(True)
-
-# logit
-plt.subplot(338)
-plt.plot(mn[7], layer_dat[7])
-#plt.yscale('logit')
-plt.title('1500')
-plt.grid(True)
-
-# logit
-plt.subplot(339)
-plt.plot(mn[8], layer_dat[8])
-#plt.yscale('logit')
-plt.title('1950')
-plt.grid(True)
-
+for j in range(len(layer_node_number)):
+    plt.subplot(330+j+1)
+    plt.plot(mn[j], layer_dat[j])
+    # plt.yscale('linear')
+    plt.title(str(layer_node_number[j]))
+    plt.grid(True)
 plt.show()
