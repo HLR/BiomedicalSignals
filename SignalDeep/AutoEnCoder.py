@@ -59,8 +59,8 @@ XX1 = X[slice[1]]
 yy1 = y[slice[1]]
 XX2 = XX1
 yy2 = yy1
-for j in range(2, len(slice)):
-    if j < 1.2 * len(a):
+for j in range(1, len(slice)):
+    if j < 1.1 * len(a):
         XX1 = np.row_stack((XX1, X[slice[j]]))
         yy1 = np.row_stack((yy1, y[slice[j]]))
     else:
@@ -131,23 +131,34 @@ model.fit(rows0, rows0, epochs=10, batch_size=128, shuffle=True, validation_data
 # The number of nodes in each layer
 layer_node_number = [1950, 1500, 750, 350, 250, 350, 750, 1500, 1950]
 layer_number = [2, 5, 8, 11, 14, 17, 20, 21, 23]
-r= 4
+r= 3
 
 get_14th_layer_output = K.function([model.layers[0].input], [model.layers[layer_number[r]].output])
+
+
+
+
+# Defining compression of the layers, in other word the number of each layer
+compression = [0.60, 0.50, 0.30, 0.40]
+q = []
+q.append(layer_node_number[r])
+for co in range(len(compression)):
+    q.append(int(compression[co] * q[co]))
+
 
 # define model structure
 def baseline_model():
    model = Sequential()
-   model.add(Dense(150, input_dim=250, activation='relu'))
+   model.add(Dense(q[1], input_dim=q[0], activation='relu'))
    model.add(Dropout(0.2))
    model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None))
-   model.add(Dense(75, activation='relu'))
+   model.add(Dense(q[2], activation='relu'))
    model.add(Dropout(0.2))
    model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None))
-   model.add(Dense(25, activation='relu'))
+   model.add(Dense(q[3], activation='relu'))
    model.add(Dropout(0.2))
    model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None))
-   model.add(Dense(10, activation='relu'))
+   model.add(Dense(q[4], activation='relu'))
    model.add(Dropout(0.2))
    model.add(BatchNormalization(axis=-1, momentum=0.99, epsilon=0.00001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None))
    model.add(Dense(2, activation='softmax'))
@@ -167,7 +178,7 @@ estimator = KerasClassifier(build_fn=baseline_model, epochs=DeepEpoch, batch_siz
 m = []
 LossAv = []
 AccuAv = []
-for k in range(5):
+for k in range(15):
     X_train = get_14th_layer_output([XX1])
     #X_test = get_14th_layer_output([XX2])
     X_Drug = get_14th_layer_output([M])
