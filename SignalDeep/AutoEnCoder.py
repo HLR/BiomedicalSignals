@@ -11,6 +11,7 @@ from six.moves import range
 import random
 from keras import backend as K
 from keras.callbacks import History
+from keras.optimizers import Adam
 
 
 with open('Data/TrainingForAuto.csv', 'r', ) as f:
@@ -41,7 +42,6 @@ y = rows1[:, len(rows1[0]) - 1]
 print(len(X))
 X = X.astype(float)
 y = y.astype(float)
-#y = column_or_1d(y, warn=True)
 
 M = rows2[:, 1:len(rows1[0]) - 2]
 M = M.astype(float)
@@ -73,6 +73,8 @@ print(len(XX1), len(yy1))
 
 
 input_img = Input(shape=(len(rows0[0]),))  # adapt this if using `channels_first` image data format
+
+adam = Adam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, decay=1e-6, amsgrad=False)
 
 s = len(rows0[0])
 
@@ -124,8 +126,8 @@ model.add(Dropout(0.5))
 
 model.add(Dense(s, activation='relu'))
 
-model.compile(optimizer='adam', loss='mse')  # reporting the accuracy
-model.fit(rows0, rows0, epochs=10, batch_size=128, shuffle=True, validation_data=(rows0, rows0))
+model.compile(optimizer=adam, loss='mse', metrics=['accuracy'])  # reporting the accuracy
+model.fit(rows0, rows0, epochs=30000, batch_size=128, shuffle=True, validation_data=(rows0, rows0))
 
 
 # The number of nodes in each layer
