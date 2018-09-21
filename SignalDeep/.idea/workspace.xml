@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SignalDeep$NewVersionAuto.coverage" NAME="NewVersionAuto Coverage Results" MODIFIED="1537387717804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SignalDeep$NewVersionAuto.coverage" NAME="NewVersionAuto Coverage Results" MODIFIED="1537390818231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SignalDeep$AutoEnCoder.coverage" NAME="AutoEnCoder Coverage Results" MODIFIED="1536874439229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SignalDeep$AutoEn.coverage" NAME="AutoEn Coverage Results" MODIFIED="1536875526212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -40,16 +40,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewVersionAuto.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewVersionAuto.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NewVersionAuto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Acur_LossOfAuto.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfAuto.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="Acur_LossOfML.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -88,7 +98,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="5">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="75" />
     <option name="y" value="24" />
     <option name="width" value="1821" />
@@ -111,11 +121,6 @@
               <item name="SignalDeep" type="b2602c69:ProjectViewProjectNode" />
               <item name="SignalDeep" type="462c0819:PsiDirectoryNode" />
               <item name="Data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SignalDeep" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SignalDeep" type="462c0819:PsiDirectoryNode" />
-              <item name="PlotsTest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -235,17 +240,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="24" width="1821" height="1056" extended-state="5" />
-    <editor active="true" />
+    <frame x="75" y="24" width="1821" height="1056" extended-state="4" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32901832" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25521126" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32901832" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25521126" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.20507042" />
@@ -367,9 +371,6 @@
     <entry file="file://$PROJECT_DIR$/Plots/Acur_LossOfML.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A6.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -379,18 +380,39 @@
     <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A8.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfAuto.png">
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A15.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A21.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A32.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A33.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A18.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A10.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/NewVersionAuto.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+        <state relative-caret-position="285">
+          <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfAuto.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
