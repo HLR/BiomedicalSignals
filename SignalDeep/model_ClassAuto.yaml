@@ -1,0 +1,313 @@
+backend: !!python/unicode 'tensorflow'
+class_name: Model
+config:
+  input_layers:
+  - [main_input, 0, 0]
+  layers:
+  - class_name: InputLayer
+    config:
+      batch_input_shape: !!python/tuple [null, 28, 28, 1]
+      dtype: float32
+      name: main_input
+      sparse: false
+    inbound_nodes: []
+    name: main_input
+  - class_name: Sequential
+    config:
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        batch_input_shape: !!python/tuple [null, 28, 28, 1]
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: &id002 !!python/tuple [1, 1]
+        dtype: float32
+        filters: 16
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_1
+        padding: same
+        strides: &id003 !!python/tuple [1, 1]
+        trainable: true
+        use_bias: true
+    - class_name: MaxPooling2D
+      config:
+        data_format: channels_last
+        name: max_pooling2d_1
+        padding: valid
+        pool_size: &id001 !!python/tuple [2, 2]
+        strides: *id001
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 8
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_2
+        padding: same
+        strides: *id003
+        trainable: true
+        use_bias: true
+    - class_name: MaxPooling2D
+      config:
+        data_format: channels_last
+        name: max_pooling2d_2
+        padding: valid
+        pool_size: &id004 !!python/tuple [2, 2]
+        strides: *id004
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 8
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_3
+        padding: same
+        strides: *id003
+        trainable: true
+        use_bias: true
+    - class_name: MaxPooling2D
+      config:
+        data_format: channels_last
+        name: max_pooling2d_3
+        padding: valid
+        pool_size: &id005 !!python/tuple [2, 2]
+        strides: *id005
+        trainable: true
+    - class_name: Flatten
+      config: {data_format: channels_last, name: flatten_1, trainable: true}
+    - class_name: Dense
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        name: dense_1
+        trainable: true
+        units: 128
+        use_bias: true
+    - class_name: Dropout
+      config: {name: dropout_1, noise_shape: null, rate: 0.5, seed: null, trainable: true}
+    inbound_nodes:
+    - - - main_input
+        - 0
+        - 0
+        - {}
+    name: sequential_1
+  - class_name: Dense
+    config:
+      activation: softmax
+      activity_regularizer: null
+      bias_constraint: null
+      bias_initializer:
+        class_name: Zeros
+        config: {}
+      bias_regularizer: null
+      kernel_constraint: null
+      kernel_initializer:
+        class_name: VarianceScaling
+        config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+      kernel_regularizer: null
+      name: ClassifierEn
+      trainable: true
+      units: 10
+      use_bias: true
+    inbound_nodes:
+    - - - sequential_1
+        - 1
+        - 0
+        - {}
+    name: ClassifierEn
+  - class_name: Sequential
+    config:
+    - class_name: Dense
+      config:
+        activation: relu
+        activity_regularizer: null
+        batch_input_shape: !!python/tuple [null, 10]
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        name: dense_2
+        trainable: true
+        units: 128
+        use_bias: true
+    - class_name: Dropout
+      config: {name: dropout_2, noise_shape: null, rate: 0.5, seed: null, trainable: true}
+    - class_name: Reshape
+      config:
+        batch_input_shape: !!python/tuple [null, 128]
+        dtype: float32
+        name: reshape_1
+        target_shape: !!python/tuple [4, 4, 8]
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 8
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_4
+        padding: same
+        strides: *id003
+        trainable: true
+        use_bias: true
+    - class_name: UpSampling2D
+      config:
+        data_format: channels_last
+        name: up_sampling2d_1
+        size: !!python/tuple [2, 2]
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 8
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_5
+        padding: same
+        strides: *id003
+        trainable: true
+        use_bias: true
+    - class_name: UpSampling2D
+      config:
+        data_format: channels_last
+        name: up_sampling2d_2
+        size: !!python/tuple [2, 2]
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: relu
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 16
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: conv2d_6
+        padding: valid
+        strides: *id003
+        trainable: true
+        use_bias: true
+    - class_name: UpSampling2D
+      config:
+        data_format: channels_last
+        name: up_sampling2d_3
+        size: !!python/tuple [2, 2]
+        trainable: true
+    - class_name: Conv2D
+      config:
+        activation: sigmoid
+        activity_regularizer: null
+        bias_constraint: null
+        bias_initializer:
+          class_name: Zeros
+          config: {}
+        bias_regularizer: null
+        data_format: channels_last
+        dilation_rate: *id002
+        filters: 1
+        kernel_constraint: null
+        kernel_initializer:
+          class_name: VarianceScaling
+          config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
+        kernel_regularizer: null
+        kernel_size: !!python/tuple [3, 3]
+        name: EnCode_Classifier_Out
+        padding: same
+        strides: *id003
+        trainable: true
+        use_bias: true
+    inbound_nodes:
+    - - - ClassifierEn
+        - 0
+        - 0
+        - {}
+    name: sequential_2
+  name: model_1
+  output_layers:
+  - [sequential_2, 1, 0]
+keras_version: 2.2.2
