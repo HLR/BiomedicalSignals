@@ -10,16 +10,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/SignalDeep$AutoClassWholeOne.coverage" NAME="AutoClassWholeOne Coverage Results" MODIFIED="1538084846773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SignalDeep$MNIST_Learing.coverage" NAME="MNIST_Learing Coverage Results" MODIFIED="1537629483406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SignalDeep$NewVersionAuto.coverage" NAME="NewVersionAuto Coverage Results" MODIFIED="1537390818231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SignalDeep$AutoEnCoder.coverage" NAME="AutoEnCoder Coverage Results" MODIFIED="1536874439229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SignalDeep$AutoEn.coverage" NAME="AutoEn Coverage Results" MODIFIED="1536875526212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="AutoEnCoder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AutoEnCoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="-837">
               <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -31,7 +47,7 @@
       <file leaf-file-name="AutoEn.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AutoEn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
+            <state relative-caret-position="-78">
               <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -44,9 +60,45 @@
         <entry file="file://$PROJECT_DIR$/NewVersionAuto.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+              <caret line="136" column="25" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="25" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MNIST_Learing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MNIST_Learing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+              <folding>
+                <element signature="e#195#232#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiOutputsModel.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MultiOutputsModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="92" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+              <folding>
+                <element signature="e#0#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AutoClassWholeOne.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AutoClassWholeOne.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-end-line="81" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,7 +109,7 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="Acur_LossOfML.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Acur_LossOfML.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
@@ -74,6 +126,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>relu</find>
+      <find>yaml</find>
     </findStrings>
     <replaceStrings>
       <replace>tanh</replace>
@@ -85,7 +138,10 @@
         <option value="$PROJECT_DIR$/Data/TrainingForAuto.csv" />
         <option value="$PROJECT_DIR$/AutoEnCoder.py" />
         <option value="$PROJECT_DIR$/AutoEn.py" />
+        <option value="$PROJECT_DIR$/MultiOutputsModel.py" />
+        <option value="$PROJECT_DIR$/MNIST_Learing.py" />
         <option value="$PROJECT_DIR$/NewVersionAuto.py" />
+        <option value="$PROJECT_DIR$/AutoClassWholeOne.py" />
       </list>
     </option>
   </component>
@@ -155,7 +211,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.NewVersionAuto">
+  <component name="RunManager" selected="Python.AutoClassWholeOne">
+    <configuration name="AutoClassWholeOne" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SignalDeep" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AutoClassWholeOne.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="AutoEn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SignalDeep" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -194,6 +269,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="MNIST_Learing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SignalDeep" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MNIST_Learing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="NewVersionAuto" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SignalDeep" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -217,9 +311,13 @@
       <item itemvalue="Python.AutoEnCoder" />
       <item itemvalue="Python.AutoEn" />
       <item itemvalue="Python.NewVersionAuto" />
+      <item itemvalue="Python.MNIST_Learing" />
+      <item itemvalue="Python.AutoClassWholeOne" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.AutoClassWholeOne" />
+        <item itemvalue="Python.MNIST_Learing" />
         <item itemvalue="Python.NewVersionAuto" />
         <item itemvalue="Python.AutoEn" />
         <item itemvalue="Python.AutoEnCoder" />
@@ -241,18 +339,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="24" width="1821" height="1056" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32901832" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25521126" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32901832" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13577464" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.20507042" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32957748" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.069859155" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
@@ -325,26 +424,6 @@
     <entry file="file://$PROJECT_DIR$/Data/Wholetable2.csv">
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/AutoEnCoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AutoEn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Plots/Layers_Auto1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -398,21 +477,78 @@
     <entry file="file://$PROJECT_DIR$/PlotsTest/SignalsR_A10.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewVersionAuto.py">
+    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfAuto.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoEnCoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+        <state relative-caret-position="-837">
+          <caret line="129" column="32" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfAuto.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/MultiOutputsModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="92" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PlotsTest/Acur_LossOfML.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/MNIST_Learing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="e#195#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/venv/SignalDeep/local/lib/python2.7/site-packages/keras/engine/training_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NewVersionAuto.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="136" column="25" selection-start-line="136" selection-start-column="21" selection-end-line="136" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoEn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoClassWholeOne.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-end-line="81" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

@@ -292,7 +292,7 @@ plt.xlabel('epoch')
 plt.legend(['train', 'test'], loc='upper left')
 #plt.show()
 plt.savefig('PlotsTest/Acur_LossOfAuto')
-print('Min_Loss:', min(his.history['loss']), 'Max_Accuracy:', max(his.history['val_loss']))
+print('Min_Loss:', min(his.history['loss']), 'Max_Accuracy:', max(his.history['val_acc']))
 
 
 
