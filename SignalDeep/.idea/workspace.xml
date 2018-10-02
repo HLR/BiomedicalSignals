@@ -95,8 +95,8 @@
       <file leaf-file-name="AutoClassWholeOne.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AutoClassWholeOne.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-end-line="81" selection-end-column="38" />
+            <state relative-caret-position="405">
+              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -339,15 +339,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="75" y="24" width="1821" height="1056" extended-state="4" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32901832" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32901832" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13577464" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32957748" />
@@ -542,8 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoClassWholeOne.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-end-line="81" selection-end-column="38" />
+        <state relative-caret-position="405">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
